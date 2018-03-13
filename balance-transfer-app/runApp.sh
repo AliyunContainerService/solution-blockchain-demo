@@ -1,20 +1,16 @@
 #!/bin/bash
 #
-# Copyright Alibaba Group. All Rights Reserved.
 # Copyright IBM Corp. All Rights Reserved.
 #
 # SPDX-License-Identifier: Apache-2.0
 #
 
 
-
-
 function cleanEnv() {
 	echo
 
-	#Cleanup the material
-	rm -rf /tmp/hfc-test-kvs* $HOME/.hfc-key-store/ /tmp/fabric-client-kvs*
-
+	#Cleanup the stores
+	rm -rf ./fabric-client-kv-org*
 }
 
 function installNodeModules() {

@@ -4,14 +4,14 @@
 
 Balance Transfer是一个基于Hyperledger Fabric SDK for Node.js的、演示简单的转账交易场景的示例程序。
 
-本文档介绍了基于阿里云容器服务的Hyperledger Fabric网络的Balance Transfer示例程序的具体使用方法。
+本文档介绍了基于阿里云容器服务的Hyperledger Fabric v1.1网络的Balance Transfer示例程序的具体使用方法。
 
 
 ## 环境准备
 
-1. 安装Node.js v6.9.x - 6.11.x (注：目前尚不支持Node.js v7)
+1. 安装Node.js v8.4.0 或更高版本
 2. 安装jq： https://stedolan.github.io/jq/
-3. 使用阿里云容器服务区块链解决方案完成创建Hyperledger Fabric区块链网络
+3. 使用阿里云容器服务区块链解决方案完成创建Hyperledger Fabric区块链网络（无需完成CLI测试)。参考文档：https://help.aliyun.com/document_detail/64311.html
 
 
 
@@ -28,6 +28,8 @@ cd balance-transfer-app
 EXTERNAL_ADDRESS=1.2.3.4 FABRIC_NETWORK=network01 ./download-from-fabric-network.sh
 ```
 在下载过程中，用户需要提供对应ECS节点root账户的登录密码以进行文件的远程拷贝。
+
+(Optional) 检查`artifacts/org1.yaml`和`artifacts/org2.yaml`看是否需要更新organization名称
 
 ### 2. 启动Node服务器
 
@@ -53,36 +55,34 @@ cd balance-transfer-app
 
 首先，需要用户按如下方式修改balance-transfer-app目录下的testAPIs.sh：
 
-* 将所有 **EXTERNAL_ADDRESS** 关键字替换为区块链网络的外部访问地址
-* 将相关端口替换为在容器服务区块链解决方案配置向导中指定的外部端口
+* 将所有 **network01-peer1** 模式的service名称替换成实际的区块链service名称，以artifacts目录中从区块链网络下载的`network-config.yaml`文件内容为准
+* 将通道名称 **bankchannel** 替换成实际的区块链channel名称，以artifacts目录中从区块链网络下载的`network-config.yaml`文件内容为准
 
-然后，打开命令窗口2，运行以下命令：(假设区块链通道名称为bankchannel)
+然后，打开命令窗口2，运行以下命令：
 
 ```
 cd balance-transfer-app
-./testAPIs.sh bankchannel
+./testAPIs.sh 
 ```
 
 该命令会自动完成以下操作：
 
-• Enroll users
-• Create a new channel 
-• Join channel for peers (two organizations, four peers)
-• Install chaincode on all peers
-• Instantiate (实例化) chaincode
-• Invoke chaincode (i.e. transfer money from b to a)
-• Query chaincode (i.e. check the balance of a)
-• Query transaction using a TransactionID
-• Query general info, like chain info, installed chaincodes, instantiated chaincodes, channel
+- Enroll users
+- Create a new channel 
+- Join channel for peers (two organizations, four peers)
+- Install chaincode on all peers
+- Instantiate (实例化) chaincode
+- Invoke chaincode (i.e. transfer money from b to a)
+- Query chaincode (i.e. check the balance of a)
+- Query transaction using a TransactionID
+- Query general info, like chain info, installed chaincodes, instantiated chaincodes, channel
 
 如需了解进一步细节，可查看```testAPIs.sh```文件内容
-
-运行过程中，为便于观察具体步骤和输入输出信息，我们加入了等待用户按任意键继续的功能，需要用户手工输入任意键继续。
 
 所有测试完成后，你将看到类似下面的信息：  
 
 ```
-Total execution time : 41 secs ...
+Total execution time : 25 secs ...
 ```
 
 

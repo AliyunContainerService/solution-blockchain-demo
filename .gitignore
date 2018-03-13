@@ -1,0 +1,15 @@
+*.class
+target/
+.classpath
+.vscode
+.project
+.settings/
+**/node_modules/
+**/artifacts/crypto-config
+**/artifacts/channel/*
+**/fabric-client-kv*
+balance-transfer-app/app/network-config.*
+balance-transfer-app/config.json
+blockchain-explorer/app/network-config-tls.json
+blockchain-explorer/config.json
+balance-transfer-app/testAPIs-part.sh
