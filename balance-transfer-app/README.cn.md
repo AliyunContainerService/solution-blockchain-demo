@@ -21,11 +21,11 @@ Balance Transfer是一个基于Hyperledger Fabric SDK for Node.js的、演示简
 
 在区块链网络的部署过程中，容器服务区块链解决方案已经自动生成了供区块链应用程序使用的配置文件。这些配置文件包括证书、密钥、区块链网络配置等区块链应用程序运行所需的要素。
 
-用户需要提供区块链网络的名称和外部访问地址，将其作为环境变量，以运行配置文件自动下载的脚本。运行命令示例如下：
+用户需要提供区块链网络的名称和可用于SSH连接下载的公网地址，将其作为环境变量，以运行配置文件自动下载的脚本。运行命令示例如下：
 
 ```
 cd balance-transfer-app
-EXTERNAL_ADDRESS=1.2.3.4 FABRIC_NETWORK=network01 ./download-from-fabric-network.sh
+SSH_ADDRESS=1.2.3.4 FABRIC_NETWORK=network01 ./download-from-fabric-network.sh
 ```
 在下载过程中，用户需要提供对应ECS节点root账户的登录密码以进行文件的远程拷贝。
 

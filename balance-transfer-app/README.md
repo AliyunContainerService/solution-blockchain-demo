@@ -22,13 +22,13 @@ This document introduce how to use Balance Transfer sample application to work w
 
 The Blockchain Solution of Container Service should have already generated artifacts for blockchain application during the deployment phase of blockchain network. The artifacts include certificates, keys, configurations to be used by blockchain application. 
 
-To download these artifacts, use the name and external address of blockchain network as environment variable and execute the shell script to download artifacts.
+To download these artifacts, use the name of blockchain network and public address for SSH download as environment variable and execute the shell script to download artifacts.
 
 For example:
 
 ```
 cd balance-transfer-app
-EXTERNAL_ADDRESS=1.2.3.4 FABRIC_NETWORK=network01 ./download-from-fabric-network.sh
+SSH_ADDRESS=1.2.3.4 FABRIC_NETWORK=network01 ./download-from-fabric-network.sh
 ```
 
 During downloading process, you will be prompted to input password for root account of your ECS node.
