@@ -93,7 +93,7 @@ var invokeChaincode = async function(peerNames, channelName, chaincodeName, fcn,
 						logger.error(message);
 						eh.disconnect();
 						reject(new Error(message));
-					}, 3000);
+					}, 10000); //yushan: change timeout from 3 seconds into 10 seconds
 					eh.registerTxEvent(tx_id_string, (tx, code) => {
 						logger.info('The chaincode invoke chaincode transaction has been committed on peer %s',eh._ep._endpoint.addr);
 						clearTimeout(event_timeout);
