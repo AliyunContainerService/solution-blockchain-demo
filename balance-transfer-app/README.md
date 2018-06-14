@@ -12,7 +12,8 @@ This document introduce how to use Balance Transfer sample application to work w
 
 1. Install Node.js v8.4.0 or higher
 2. Install jq： https://stedolan.github.io/jq/
-3. Use Blockchain Solution of Container Service of Alibaba Cloud to create a blockchain network (No need to do CLI test). Reference: https://help.aliyun.com/document_detail/64311.html
+3. (For CentOS or RedHat Linux only) Install g++, for example: `sudo yum install -y gcc-c++`
+4. Use Blockchain Solution of Container Service of Alibaba Cloud to create a blockchain network (No need to do CLI test). Reference: https://help.aliyun.com/document_detail/64311.html
 
 
 

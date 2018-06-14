@@ -19,7 +19,11 @@ function installNodeModules() {
 		echo "============== node modules installed already ============="
 	else
 		echo "============== Installing node modules ============="
-		npm install --registry=https://registry.npm.taobao.org
+		if [ -f /etc/centos-release ] || [ -f /etc/redhat-release ]; then
+			npm install --registry=https://registry.npm.taobao.org --unsafe-perm
+		else
+			npm install --registry=https://registry.npm.taobao.org
+		fi
 	fi
 	echo
 }

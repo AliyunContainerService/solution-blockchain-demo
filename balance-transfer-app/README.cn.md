@@ -11,7 +11,8 @@ Balance Transfer是一个基于Hyperledger Fabric SDK for Node.js的、演示简
 
 1. 安装Node.js v8.4.0 或更高版本
 2. 安装jq： https://stedolan.github.io/jq/
-3. 使用阿里云容器服务区块链解决方案完成创建Hyperledger Fabric区块链网络（无需完成CLI测试)。参考文档：https://help.aliyun.com/document_detail/64311.html
+3. (仅适用CentOS或RedHat Linux)安装g++, 命令示例: `sudo yum install -y gcc-c++`
+4. 使用阿里云容器服务区块链解决方案完成创建Hyperledger Fabric区块链网络（无需完成CLI测试)。参考文档：https://help.aliyun.com/document_detail/64311.html
 
 
 
